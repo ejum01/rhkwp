@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Hello Thymeleaf</title>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
 </head>
 <body>
-
-  <span th:utext="${message}"></span>
-
-<h1 th:text="${message}"></h1>
-
+<h2>Welcome to our website!</h2>
+<p>Please choose an option:</p>
+<a th:href="@{/login}">Login</a><br/>
+<a th:href="@{/signup}">Sign Up</a>
 </body>
 </html>
