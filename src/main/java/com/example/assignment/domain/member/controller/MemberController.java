@@ -33,14 +33,15 @@ public class MemberController {
     }
 
     // 회원가입 메소드
-//    @PostMapping("/signup")
-//    public String signup(@RequestParam("username") String username,
-//                         @RequestParam("password")String password){
-//
-////        int result = memberService.createMember(username, password);
-//
-//        return "redirect:/login";
-//    }
+    @PostMapping("/signup")
+    public String signup(@RequestParam("username") String username,
+                         @RequestParam("password")String password){
+
+        int result = memberService.createMember(username, password);
+        System.out.println("asdaslkdjsaldjsalkdjsaldjsalkjdlaksjdlkasjdlskajdlaksjkl");
+
+        return "redirect:/login";
+    }
 
     @GetMapping("/login")
     public String login(Model model){
@@ -49,11 +50,13 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public String login(Model model, Authentication authentication) {
+    public String login(@RequestParam("username") String username,
+                        @RequestParam("password")String password) {
         // 로그인 성공 시 메시지를 콘솔에 출력
         System.out.println("Login successful!");
 
         // 추가로 모델에 데이터를 추가하거나 다른 작업을 수행할 수 있음
+        int result = memberService.selectmember(username, password);
 
         // 로그인 성공 후에 welcome 페이지로 리다이렉트
         return "redirect:/welcome";
